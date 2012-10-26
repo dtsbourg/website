@@ -1,0 +1,7 @@
+/* humanstxt.org */
+
+/* SITE */
+  Authors: Michele Castata, Frederic Jacobs, Romain Ruetschi
+  Standards: HTML5, CSS3
+  Components: Foundation, jQuery, Orbit, Reveal
+  Software: Sublime Text 2, Git, Compass
