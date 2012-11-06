@@ -1,10 +1,14 @@
 
-var events = require( './lib/events' ),
-    albums = require( './lib/albums' ),
+var Events = require( './lib/events' ),
+    Albums = require( './lib/albums' ),
+    fb     = require( './lib/fb' ),
     async  = require( 'async' );
 
-function refreshData()
+function fetchData( FB )
 {
+    var events = Events( FB ),
+        albums = Albums( FB );
+
     async.series(
         [
             events.fetchAll.bind( events ),
@@ -22,6 +26,11 @@ function refreshData()
             console.log( 'Albums: ', results[ 1 ] );
         }
     );
+}
+
+function refreshData()
+{
+    fb.connect( fetchData );
 
     setTimeout( refreshData, 15 * 60 * 1000 );
 }
