@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "express": "3.x",
-    "ejs": "~0.8.3",
     "mongoskin": "~0.4.4",
     "async": "~0.1.22",
-    "fb": "~0.0.9"
+    "fb": "~0.0.9",
+    "ejs-locals": "~0.2.5"
   },
   "devDependencies": {},
   "scripts": {

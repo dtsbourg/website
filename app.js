@@ -2,8 +2,7 @@
 var fb   = require( './lib/fb' ),
     data = require( './lib/data' ),
     express = require( 'express' ),
-    app = express(),
-    albums, events;
+    app = module.exports = express();
 
 function refreshData()
 {
@@ -11,10 +10,10 @@ function refreshData()
     {
         data.fetchAll( FB, function( err, data )
         {
-            console.log( 'Fetched data:', data );
+            console.log( 'Fetched events:', data.events.future );
 
-            albums = data.albums;
-            events = data.events;
+            app.locals.albums = data.albums;
+            app.locals.events = data.events;
         } );
     } );
 
@@ -23,5 +22,24 @@ function refreshData()
 
 refreshData();
 
-app.use( express.static( './public' ) );
-app.listen( 3000 );
+app.enable( 'trust proxy' );
+
+app.set( 'views', __dirname + '/views' );
+app.engine( 'ejs', require( 'ejs-locals' ) );
+app.locals._layoutFile = '/layout.ejs';
+app.set( 'view engine', 'ejs' );
+
+app.get( '/', function( req, res )
+{
+    res.render( 'home', { title: 'Home', events: app.locals.events } );
+} );
+
+app.use( express.static( __dirname + '/public' ) );
+
+if( !module.parent )
+{
+    var port = process.env.PORT || 3000;
+    
+    app.listen( port );
+    console.log( 'Express app started on port ' + port );
+}
