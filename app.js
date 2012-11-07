@@ -2,7 +2,8 @@
 var fb   = require( './lib/fb' ),
     data = require( './lib/data' ),
     express = require( 'express' ),
-    app = express();
+    app = express(),
+    albums, events;
 
 function refreshData()
 {
@@ -11,6 +12,9 @@ function refreshData()
         data.fetchAll( FB, function( err, data )
         {
             console.log( 'Fetched data:', data );
+
+            albums = data.albums;
+            events = data.events;
         } );
     } );
 
@@ -18,3 +22,6 @@ function refreshData()
 }
 
 refreshData();
+
+app.use( express.static( './public' ) );
+app.listen( 3000 );

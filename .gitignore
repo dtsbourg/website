@@ -1,5 +1,5 @@
-stylesheets/*.css
-.sass-cache
+public/stylesheets/*.css
+public/.sass-cache
 node_modules/
 app.orig.js
 doc/
