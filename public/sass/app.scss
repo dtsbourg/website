@@ -10,6 +10,19 @@ h1 {
   }
 }
 
-#events h4 > small {
+h4 > small {
   margin-left: 10px
+}
+
+.grid {
+    [class*="column"] + [class*="column"]:last-child {
+        float: left;
+    }
+}
+
+.picture {
+    // border: 15px solid white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    // box-shadow: 1px 1px 3px #AAA;
 }

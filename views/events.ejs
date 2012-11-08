@@ -13,14 +13,11 @@
     </div>
   </div>
 
-  <div class="row" id="events">
+  <div class="row grid" id="events">
 
     <div class="twelve columns">
       <h4>
         Upcoming events
-        <% if( events.future.length > 2 ) { %>
-          <small><a href="/events">See all <%= events.future.length %> events</a></small>
-        <% } %>
       </h4>
       <div class="row">
         <% if( !events.future.length ) { %>
@@ -33,10 +30,6 @@
               <p><%= event.description %></p>
             </div>
           <% } %>
-          <% if( events.future.length < 3 ) {
-              for( var i = 3; i > events.future.length; i-- ) { %>
-              <div class="four columns"></div>
-          <% } } %>
         <% } %>
       </div>
 
@@ -44,9 +37,6 @@
 
       <h4>
         Past events
-        <% if( events.past.length > 2 ) { %>
-          <small><a href="/events">See all <%= events.future.length %> events</a></small>
-        <% } %>
       </h4>
       <div class="row">
         <% if( !events.past.length ) { %>
@@ -59,10 +49,6 @@
               <p><%= event.description %></p>
             </div>
           <% } %>
-          <% if( events.past.length < 3 ) {
-              for( var i = 3; i > events.past.length; i-- ) { %>
-              <div class="four columns"></div>
-          <% } } %>
         <% } %>
       </div>
 

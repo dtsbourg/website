@@ -1,0 +1,17 @@
+<% layout( 'layout' ) -%>
+<% script( '/javascripts/foundation/jquery.min.js' ) %>
+<% script( '/javascripts/jquery.jknav.min.js' ) %>
+<% script( '/javascripts/album.js' ) %>
+
+<div class="row" id="album">
+  <div class="twelve columns">
+    <h4><%= album.name %></h4>
+    <div id="pictures">
+      <% for( var i = 0; i < album.photos.length; i++ ) { var photo = album.photos[ i ]; %>
+        <div class="picture" id="photo-<%= photo.id %>">
+          <img src="<%= photo.source %>" alt="<%= photo.name %>" />
+        </div>
+      <% } %>
+    </div>
+  </div>
+</div>

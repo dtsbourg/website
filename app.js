@@ -11,8 +11,6 @@ function refreshData()
     {
         fetchData( FB, function( err, results )
         {
-            console.log( 'Fetched events:', results.events.future );
-
             data.albums = results.albums;
             data.events = results.events;
         } );
@@ -43,6 +41,33 @@ app.get( '/events', function( req, res )
     res.render( 'events', {
         title: 'Events',
         events: data.events
+    } );
+} );
+
+app.get( '/gallery', function( req, res )
+{
+    res.render( 'gallery', {
+        title: 'Gallery',
+        albums: data.albums
+    } );
+} );
+
+app.get( '/album/:id', function( req, res )
+{
+    var id = req.params.id,
+        album = data.albums.findById( id );
+
+    if( !album )
+    {
+        res.redirect( '/gallery' );
+        return;
+    }
+
+    console.log( album.photos );
+
+    res.render( 'album', {
+        title: album.name,
+        album: album
     } );
 } );
 
