@@ -25,7 +25,7 @@
         <% } else { %>
           <% for( var i = 0; i < events.future.length; i++ ) { var event = events.future[ i ]; %>
             <div class="four columns">
-              <img src="https://graph.facebook.com/<%= event.id %>/picture?type=large" />
+              <img src="/fb/<%= event.id %>/picture?type=large" />
               <h5><a href="http://www.facebook.com/event.php?eid=<%= event.id %>"><%= event.name %></a></h5>
               <p><%= event.description %></p>
             </div>
@@ -44,7 +44,7 @@
         <% } else { %>
           <% for( var i = 0; i < events.past.length; i++ ) { var event = events.past[ i ]; %>
             <div class="four columns">
-              <img src="https://graph.facebook.com/<%= event.id %>/picture?type=large" />
+              <img src="/fb/<%= event.id %>/picture?type=large" />
               <h5><a href="http://www.facebook.com/event.php?eid=<%= event.id %>"><%= event.name %></a></h5>
               <p><%= event.description %></p>
             </div>

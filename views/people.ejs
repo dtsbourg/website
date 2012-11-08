@@ -1,0 +1,27 @@
+<% layout( 'layout' ) -%>
+
+<div class="row" id="people">
+  <div class="twelve columns">
+    <h4>$ whois hackepfl.com</h4>
+    <p class="lead">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <hr />
+    <% for( var i = 0; i < people.length; i++ ) { var person = people[ i ]; %>
+      <div class="four columns">
+        <div class="three columns">
+          <img src="/fb/<%= person.facebookId %>/picture?type=square" alt="<%= person.name %>'s photo" />
+        </div>
+        <div class="nine columns">
+          <h5><%= person.name %></h5>
+          <p><%= person.bio %></p>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</div>

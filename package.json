@@ -16,7 +16,8 @@
     "mongoskin": "~0.4.4",
     "async": "~0.1.22",
     "fb": "~0.0.9",
-    "ejs-locals": "~0.2.5"
+    "ejs-locals": "~0.2.5",
+    "request": "~2.11.4"
   },
   "devDependencies": {},
   "scripts": {
