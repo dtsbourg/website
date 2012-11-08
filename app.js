@@ -1,19 +1,20 @@
 
 var fb   = require( './lib/fb' ),
-    data = require( './lib/data' ),
+    fetchData = require( './lib/data' ).fetchAll,
     express = require( 'express' ),
-    app = module.exports = express();
+    app = module.exports = express(),
+    data = {};
 
 function refreshData()
 {
     fb.connect( function( FB )
     {
-        data.fetchAll( FB, function( err, data )
+        fetchData( FB, function( err, results )
         {
-            console.log( 'Fetched events:', data.events.future );
+            console.log( 'Fetched events:', results.events.future );
 
-            app.locals.albums = data.albums;
-            app.locals.events = data.events;
+            data.albums = results.albums;
+            data.events = results.events;
         } );
     } );
 
@@ -31,7 +32,18 @@ app.set( 'view engine', 'ejs' );
 
 app.get( '/', function( req, res )
 {
-    res.render( 'home', { title: 'Home', events: app.locals.events } );
+    res.render( 'home', {
+        title: 'Home',
+        events: data.events
+    } );
+} );
+
+app.get( '/events', function( req, res )
+{
+    res.render( 'events', {
+        title: 'Events',
+        events: data.events
+    } );
 } );
 
 app.use( express.static( __dirname + '/public' ) );
