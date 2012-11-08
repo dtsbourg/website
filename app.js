@@ -40,6 +40,7 @@ app.get( '/', function( req, res )
         title: 'Home',
         events: data.events
     } );
+    console.log( data.events.future );
 } );
 
 app.get( '/events', function( req, res )
@@ -83,20 +84,6 @@ app.get( '/album/:id', function( req, res )
         title: album.name,
         album: album
     } );
-} );
-
-// I'm lazy. Will eventually^Wdefinitely have to switch to proper resources linking.
-// Eg. https://graph.facebook.com/43543534254353/picture?type=large => http://photos-d.ak.fbcdn.net/[...]
-app.get( '/fb/*', function( req, res )
-{
-    var uri = url.parse( req.url.replace( /^\/fb/, '' ), true );
-    uri.protocol = 'https:';
-    uri.host = 'graph.facebook.com';
-    uri.query.access_token = FB.getAccessToken();
-    uri.search = undefined;
-    uri = url.format( uri );
-
-    request( uri ).pipe( res );
 } );
 
 app.use( express.static( __dirname + '/public' ) );

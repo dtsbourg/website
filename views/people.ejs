@@ -2,7 +2,7 @@
 
 <div class="row" id="people">
   <div class="twelve columns">
-    <h4>$ whois hackepfl.com</h4>
+    <h4>whois hackepfl.com</h4>
     <p class="lead">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -14,10 +14,10 @@
     <hr />
     <% for( var i = 0; i < people.length; i++ ) { var person = people[ i ]; %>
       <div class="four columns">
-        <div class="three columns">
-          <img src="/fb/<%= person.facebookId %>/picture?type=square" alt="<%= person.name %>'s photo" />
+        <div class="four columns">
+          <img src="https://graph.facebook.com/<%= person.facebookId %>/picture?type=normal" alt="<%= person.name %>'s photo" />
         </div>
-        <div class="nine columns">
+        <div class="eight columns">
           <h5><%= person.name %></h5>
           <p><%= person.bio %></p>
         </div>

@@ -25,7 +25,7 @@
         <% } else { %>
           <% for( var i = 0; i < albums.length && albums[ i ].type !== 'profile'; i++ ) { var album = albums[ i ]; %>
             <div class="four columns">
-              <img src="/fb/<%= album.id %>/picture?type=album" />
+              <img src="https://graph.facebook.com/<%= album.id %>/picture?type=album" />
               <h5><a href="/album/<%= album.id %>"><%= album.name %></a></h5>
             </div>
           <% } %>
