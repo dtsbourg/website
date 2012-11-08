@@ -40,7 +40,6 @@ app.get( '/', function( req, res )
         title: 'Home',
         events: data.events
     } );
-    console.log( data.events.future );
 } );
 
 app.get( '/events', function( req, res )
@@ -77,8 +76,6 @@ app.get( '/album/:id', function( req, res )
         res.redirect( '/gallery' );
         return;
     }
-
-    console.log( album.photos );
 
     res.render( 'album', {
         title: album.name,
