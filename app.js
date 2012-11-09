@@ -34,6 +34,8 @@ app.engine( 'ejs', require( 'ejs-locals' ) );
 app.locals._layoutFile = '/layout.ejs';
 app.set( 'view engine', 'ejs' );
 
+app.use( express.bodyParser() );
+
 app.get( '/', function( req, res )
 {
     res.render( 'home', {
@@ -81,6 +83,23 @@ app.get( '/album/:id', function( req, res )
         title: album.name,
         album: album
     } );
+} );
+
+
+app.post( '/subscribe', function( req, res )
+{
+    var email = req.body.email;
+
+    if( email && email.indexOf( '@' ) > 0 )
+    {
+        // TODO: add e-mail to mailing list.
+
+        res.json( 200, { status: 'subscribed' } );
+    }
+    else
+    {
+        res.json( 500, { status: 'error', error: 'Invalid e-mail address.' } );
+    }
 } );
 
 app.use( express.static( __dirname + '/public' ) );

@@ -1,5 +1,8 @@
 <% layout( 'layout' ) -%>
 
+<% script( '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' ) %>
+<% script( '/javascripts/subscribe.js' ) %>
+
 <div class="row" id="banner">
     <div class="twelve columns">
       <img src="/images/library.jpg" />
@@ -47,7 +50,9 @@
       <h4>Stay in touch</h4>
       <div class="panel">
         <p>Subscribe to the mailing list:</p>
-        <input name="email" type="email" placeholder="info@hackepfl.com" class="email" />
-        <input type="submit" class="radius button submit" value="Subscribe" />
+        <form id="subscribe" method="post" action="/subscribe">
+          <input name="email" type="email" placeholder="info@hackepfl.com" class="email" />
+          <input type="submit" class="radius button submit" value="Subscribe" />
+        </form>
       </div>
   </div>
