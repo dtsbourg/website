@@ -2,12 +2,23 @@
 var http = require( 'http' ),
     url = require( 'url' ),
     request = require( 'request' ),
+    express = require( 'express' ),
+    MailChimpAPI = require( 'mailchimp' ).MailChimpAPI,
+    config = require( './lib/config' ),
     FB = require( './lib/fb' ),
     fetchData = require( './lib/data' ).fetchAll,
-    express = require( 'express' ),
     app = module.exports = express(),
     data = {},
     people = require( './lib/people' );
+
+try
+{
+    var mailchimp = new MailChimpAPI( config.MAILCHIMP.API_KEY, { secure: true } );
+}
+catch ( e )
+{
+    console.error( '[ERROR] Can\'t connect to MailChimp', e.message );
+}
 
 function refreshData()
 {
@@ -90,11 +101,47 @@ app.post( '/subscribe', function( req, res )
 {
     var email = req.body.email;
 
+    if( !mailchimp )
+    {
+        res.json( 500, { status: 'error', error: 'Mailing list server down.' } );
+        return;
+    }
+
+    if( !email )
+    {
+        res.json( 500, { status: 'error', error: 'No e-mail supplied.' } );
+    }
+
     if( email && email.indexOf( '@' ) > 0 )
     {
-        // TODO: add e-mail to mailing list.
+        // Send an error if MailChimp doesn't answer after 10 seconds.
+        setTimeout( function()
+        {
+            res.json( 500, { status: 'error', error: 'Mailing list server didn\'t respond.' } );
 
-        res.json( 200, { status: 'subscribed' } );
+        }, 10 * 1000 );
+
+        mailchimp.listSubscribe(
+            {
+                id: config.MAILCHIMP.LIST_ID,
+                email_address: email,
+                email_type: 'html',
+                update_existing: true,
+                // double_optin: '?'
+                // send_welcome: '?'
+            },
+            function( err, response )
+            {
+                if( err )
+                {
+                    res.json( 500, { status: 'error', error: err.error } );
+                }
+                else
+                {
+                    res.json( 200, { status: 'subscribed' } );
+                }
+            }
+        );
     }
     else
     {
