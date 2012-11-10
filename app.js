@@ -45,6 +45,8 @@ app.engine( 'ejs', require( 'ejs-locals' ) );
 app.locals._layoutFile = '/layout.ejs';
 app.set( 'view engine', 'ejs' );
 
+app.use(express.logger());
+app.use(express.compress());
 app.use( express.bodyParser() );
 
 app.get( '/', function( req, res )
