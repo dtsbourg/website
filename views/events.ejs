@@ -20,19 +20,21 @@
         Upcoming events
       </h4>
       <div class="row">
-        <div class="four columns">
         <% if( !events.future.length ) { %>
+        <div class="four columns">
           <p>There are no upcoming events.</p>
+        </div>
         <% } else { %>
           <% for( var i = 0; i < events.future.length; i++ ) { var event = events.future[ i ]; %>
+            <div class="four columns">
               <a href="http://www.facebook.com/event.php?eid=<%= event.id %>">
                 <img src="https://graph.facebook.com/<%= event.id %>/picture?type=large" />
               </a>
               <h5><a href="http://www.facebook.com/event.php?eid=<%= event.id %>"><%= event.name %></a></h5>
               <p><%= event.description %></p>
+            </div>
           <% } %>
         <% } %>
-        </div>
       </div>
 
       <hr />
@@ -41,19 +43,21 @@
         Past events
       </h4>
       <div class="row">
-        <div class="four columns">
         <% if( !events.past.length ) { %>
+        <div class="four columns">
           <p>There are no past events.</p>
+        </div>
         <% } else { %>
           <% for( var i = 0; i < events.past.length; i++ ) { var event = events.past[ i ]; %>
+            <div class="four columns">
               <a href="http://www.facebook.com/event.php?eid=<%= event.id %>">
                 <img src="https://graph.facebook.com/<%= event.id %>/picture?type=large" />
               </a>
               <h5><a href="http://www.facebook.com/event.php?eid=<%= event.id %>"><%= event.name %></a></h5>
               <p><%= event.description %></p>
+            </div>
           <% } %>
         <% } %>
-        </div>
       </div>
 
     </div>

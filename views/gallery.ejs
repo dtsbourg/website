@@ -21,7 +21,9 @@
       </h4>
       <div class="row">
         <% if( !albums.length ) { %>
+        <div class="four columns">
           <p>There are no albums.</p>
+        </div>
         <% } else { %>
           <% for( var i = 0; i < albums.length; i++ ) { var album = albums[ i ]; %>
             <div class="four columns">
