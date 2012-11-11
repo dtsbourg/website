@@ -23,7 +23,7 @@
         <% if( !albums.length ) { %>
           <p>There are no albums.</p>
         <% } else { %>
-          <% for( var i = 0; i < albums.length && albums[ i ].type !== 'profile'; i++ ) { var album = albums[ i ]; %>
+          <% for( var i = 0; i < albums.length; i++ ) { var album = albums[ i ]; %>
             <div class="four columns">
               <img src="https://graph.facebook.com/<%= album.id %>/picture?type=album" />
               <h5><a href="/album/<%= album.id %>"><%= album.name %></a></h5>
