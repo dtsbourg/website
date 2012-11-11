@@ -53,7 +53,8 @@ app.get( '/', function( req, res )
 {
     res.render( 'home', {
         title: 'Home',
-        events: data.events
+        events: data.events,
+        page: 'home'
     } );
 } );
 
@@ -61,7 +62,8 @@ app.get( '/events', function( req, res )
 {
     res.render( 'events', {
         title: 'Events',
-        events: data.events
+        events: data.events,
+        page: 'events'
     } );
 } );
 
@@ -69,7 +71,8 @@ app.get( '/people', function( req, res )
 {
     res.render( 'people', {
         title: 'People',
-        people: people
+        people: people,
+        page: 'people'
     } );
 } );
 
@@ -77,7 +80,8 @@ app.get( '/gallery', function( req, res )
 {
     res.render( 'gallery', {
         title: 'Gallery',
-        albums: data.albums
+        albums: data.albums,
+        page: 'gallery'
     } );
 } );
 
@@ -94,7 +98,8 @@ app.get( '/album/:id', function( req, res )
 
     res.render( 'album', {
         title: album.name,
-        album: album
+        album: album,
+        page: 'gallery'
     } );
 } );
 

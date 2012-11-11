@@ -24,6 +24,30 @@ h1 {
   }
 }
 
+.nav-bar {
+  background: #FFF;
+  border-bottom: 1px solid #DDD;
+  li {
+    border: none;
+    a {
+      color: $txtColor;
+      &:hover {
+        color: $mainColor;
+        background: #FFF;
+      }
+    }
+  }
+  li:last-child {
+    border: none;
+  }
+  li.active {
+    background: none;
+    a {
+      color: $mainColor;
+    }
+  }
+}
+
 h4 > small {
   margin-left: 10px
 }

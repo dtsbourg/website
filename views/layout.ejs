@@ -20,11 +20,21 @@
     </div>
     <div class="nine columns">
       <ul class="nav-bar right">
-        <li><a href="/" rel="home">Home</a></li>
-        <li><a href="/events">Events</a></li>
-        <li><a href="/gallery">Gallery</a></li>
-        <li><a href="/people">People</a></li>
-        <li><a href="http://hackepfl.tumblr.com">Blog</a></li>
+        <li<%- (page == 'home' ? ' class="active"' : '') %>>
+          <a href="/" rel="home" >Home</a>
+        </li>
+        <li<%- (page == 'events' ? ' class="active"' : '') %>>
+          <a href="/events">Events</a>
+        </li>
+        <li<%- (page == 'gallery' ? ' class="active"' : '') %>>
+          <a href="/gallery">Gallery</a>
+        </li>
+        <li<%- (page == 'people' ? ' class="active"' : '') %>>
+          <a href="/people">People</a>
+        </li>
+        <li>
+          <a href="http://hackepfl.tumblr.com">Blog</a>
+        </li>
       </ul>
     </div>
   </header>
