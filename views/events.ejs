@@ -1,63 +1,60 @@
 <% layout( 'layout' ) -%>
 
 <div class="row">
-    <div class="twelve columns">
-      <h3>The event loop</h3>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <hr />
+  <div class="twelve columns">
+    <h3>The event loop</h3>
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <hr />
+  </div>
+</div>
+
+<div class="row grid" id="events">
+  <div class="twelve columns">
+    <h4>
+      Upcoming events
+    </h4>
+    <div class="row">
+      <% if( !events.future.length ) { %>
+      <div class="four columns">
+        <p>There are no upcoming events.</p>
+      </div>
+      <% } else { %>
+        <% for( var i = 0; i < events.future.length; i++ ) { var event = events.future[ i ]; %>
+          <div class="four columns">
+            <a href="http://www.facebook.com/event.php?eid=<%= event.id %>">
+              <img src="https://graph.facebook.com/<%= event.id %>/picture?type=large" />
+            </a>
+            <h5><a href="http://www.facebook.com/event.php?eid=<%= event.id %>"><%= event.name %></a></h5>
+            <p><%= event.description %></p>
+          </div>
+        <% } %>
+      <% } %>
+    </div>
+    <hr />
+    <h4>
+      Past events
+    </h4>
+    <div class="row">
+      <% if( !events.past.length ) { %>
+      <div class="four columns">
+        <p>There are no past events.</p>
+      </div>
+      <% } else { %>
+        <% for( var i = 0; i < events.past.length; i++ ) { var event = events.past[ i ]; %>
+          <div class="four columns">
+            <a href="http://www.facebook.com/event.php?eid=<%= event.id %>">
+              <img src="https://graph.facebook.com/<%= event.id %>/picture?type=large" />
+            </a>
+            <h5><a href="http://www.facebook.com/event.php?eid=<%= event.id %>"><%= event.name %></a></h5>
+            <p><%= event.description %></p>
+          </div>
+        <% } %>
+      <% } %>
     </div>
   </div>
-
-  <div class="row grid" id="events">
-
-    <div class="twelve columns">
-      <h4>
-        Upcoming events
-      </h4>
-      <div class="row">
-        <% if( !events.future.length ) { %>
-        <div class="four columns">
-          <p>There are no upcoming events.</p>
-        </div>
-        <% } else { %>
-          <% for( var i = 0; i < events.future.length; i++ ) { var event = events.future[ i ]; %>
-            <div class="four columns">
-              <a href="http://www.facebook.com/event.php?eid=<%= event.id %>">
-                <img src="https://graph.facebook.com/<%= event.id %>/picture?type=large" />
-              </a>
-              <h5><a href="http://www.facebook.com/event.php?eid=<%= event.id %>"><%= event.name %></a></h5>
-              <p><%= event.description %></p>
-            </div>
-          <% } %>
-        <% } %>
-      </div>
-
-      <hr />
-
-      <h4>
-        Past events
-      </h4>
-      <div class="row">
-        <% if( !events.past.length ) { %>
-        <div class="four columns">
-          <p>There are no past events.</p>
-        </div>
-        <% } else { %>
-          <% for( var i = 0; i < events.past.length; i++ ) { var event = events.past[ i ]; %>
-            <div class="four columns">
-              <a href="http://www.facebook.com/event.php?eid=<%= event.id %>">
-                <img src="https://graph.facebook.com/<%= event.id %>/picture?type=large" />
-              </a>
-              <h5><a href="http://www.facebook.com/event.php?eid=<%= event.id %>"><%= event.name %></a></h5>
-              <p><%= event.description %></p>
-            </div>
-          <% } %>
-        <% } %>
-      </div>
-
-    </div>
+</div>

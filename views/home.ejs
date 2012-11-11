@@ -4,54 +4,51 @@
 <% script( '/javascripts/subscribe.js' ) %>
 
 <div class="row" id="banner">
-    <div class="twelve columns">
-      <img src="/images/banner.jpg" alt="Join the movement. Hack EPFL" />
-      <h3></h3>
-      <p class="lead">HackEPFL aims to promote the hacking culture and to foster innovation at EPFL, one amazing event at a time.<br />
-        Make new friends. Make stuff. Make the difference.</p>
-      <hr />
+  <div class="twelve columns">
+    <img src="/images/banner.jpg" alt="Join the movement. Hack EPFL" class="hide-for-small" />
+    <h3></h3>
+    <p class="lead">HackEPFL aims to promote the hacking culture and to foster innovation at EPFL, one amazing event at a time.<br />
+      Make new friends. Make stuff. Make the difference.</p>
+    <hr />
+  </div>
+</div>
+
+<div class="row" id="events">
+  <div class="eight columns">
+    <h4>
+      Upcoming events
+      <% if( events.future.length > 2 ) { %>
+        <small><a href="/events">See all <%= events.future.length %> events</a></small>
+      <% } %>
+    </h4>
+    <div class="row">
+      <% if( !events.future.length ) { %>
+      <div class="six columns">
+        <p>There are no upcoming events.
+        Check out our <a href="/events">past events</a> or our <a href="http://www.facebook.com/groups/hackberkeley/">Facebook page</a></p>
+      </div>
+      <% } else { %>
+        <% for( var i = 0; i < events.future.length && i < 2; i++ ) { var event = events.future[ i ]; %>
+          <div class="six columns">
+            <a href="http://www.facebook.com/event.php?eid=<%= event.id %>">
+              <img src="https://graph.facebook.com/<%= event.id %>/picture?type=large" />
+            </a>
+            <h5><a href="http://www.facebook.com/event.php?eid=<%= event.id %>"><%= event.name %></a></h5>
+            <p><%= event.description %></p>
+          </div>
+        <% } %>
+      <% } %>
     </div>
   </div>
 
-  <div class="row" id="events">
-
-    <div class="eight columns">
-      <h4>
-        Upcoming events
-        <% if( events.future.length > 2 ) { %>
-          <small><a href="/events">See all <%= events.future.length %> events</a></small>
-        <% } %>
-      </h4>
-      <div class="row">
-        <% if( !events.future.length ) { %>
-        <div class="six columns">
-          <p>There are no upcoming events.
-          Check out our <a href="/events">past events</a> or our <a href="http://www.facebook.com/groups/hackberkeley/">Facebook page</a></p>
-        </div>
-        <% } else { %>
-
-          <% for( var i = 0; i < events.future.length && i < 2; i++ ) { var event = events.future[ i ]; %>
-            <div class="six columns">
-              <a href="http://www.facebook.com/event.php?eid=<%= event.id %>">
-                <img src="https://graph.facebook.com/<%= event.id %>/picture?type=large" />
-              </a>
-              <h5><a href="http://www.facebook.com/event.php?eid=<%= event.id %>"><%= event.name %></a></h5>
-              <p><%= event.description %></p>
-            </div>
-          <% } %>
-          
-        <% } %>
-      </div>
-
+  <div class="four columns" id="mailing-list">
+    <h4>Stay in touch</h4>
+    <div class="panel">
+      <p>Subscribe to the mailing list:</p>
+      <form id="subscribe" method="post" action="/subscribe">
+        <input name="email" type="email" placeholder="info@hackepfl.com" class="email" />
+        <input type="submit" class="radius button right submit" value="Subscribe" />
+      </form>
     </div>
-
-    <div class="four columns" id="mailing-list">
-      <h4>Stay in touch</h4>
-      <div class="panel">
-        <p>Subscribe to the mailing list:</p>
-        <form id="subscribe" method="post" action="/subscribe">
-          <input name="email" type="email" placeholder="info@hackepfl.com" class="email" />
-          <input type="submit" class="radius button right submit" value="Subscribe" />
-        </form>
-      </div>
   </div>
+</div>
