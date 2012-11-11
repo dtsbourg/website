@@ -5,8 +5,18 @@
 @import "foundation";
 
 h1 {
-  span {
-    color: $mainColor;
+  a {
+    color: $txtColor;
+    span {
+      color: $mainColor;
+    }
+
+    &:hover {
+      color: $mainColor;
+      span {
+        color: $txtColor;
+      }      
+    }
   }
 }
 
