@@ -9,6 +9,18 @@
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" />
   <link rel="stylesheet" href="/stylesheets/app.css" />
   <script src="/javascripts/lib/modernizr.foundation.js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36253971-1']);
+    _gaq.push(['_setDomainName', 'hackepfl.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </head>
 <body>
 
@@ -61,14 +73,6 @@
 
   <script src="/javascripts/global.js"></script>
   <%- scripts %>
-  <script>
-    var _gaq = [['_setAccount', 'UA-36253971-1'], ['_trackPageview']];
-    (function(d, t) {
-      var g = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      g.src = '//www.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g, s);
-    }(document, 'script'));
-  </script>
+
 </body>
 </html>
