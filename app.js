@@ -140,14 +140,14 @@ app.post( '/subscribe', function( req, res )
             function( err, response )
             {
                 clearTimeout( timeout );
-                
+
                 if( err )
                 {
                     res.json( 500, { status: 'error', error: err.error } );
                 }
                 else
                 {
-                    res.json( 200, { status: 'subscribed', message: 'Ok! Please check your e-mail' } );
+                    res.json( 200, { status: 'subscribed', message: 'Thanks! Please check your e-mail.' } );
                 }
             }
         );
