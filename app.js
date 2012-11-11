@@ -15,7 +15,7 @@ try
 {
     var mailchimp = new MailChimpAPI( config.MAILCHIMP.API_KEY, { secure: true } );
 }
-catch ( e )
+catch( e )
 {
     console.error( '[ERROR] Can\'t connect to MailChimp', e.message );
 }
@@ -45,8 +45,8 @@ app.engine( 'ejs', require( 'ejs-locals' ) );
 app.locals._layoutFile = '/layout.ejs';
 app.set( 'view engine', 'ejs' );
 
-app.use(express.logger());
-app.use(express.compress());
+app.use( express.logger() );
+app.use( express.compress() );
 app.use( express.bodyParser() );
 
 app.get( '/', function( req, res )
