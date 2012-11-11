@@ -19,7 +19,7 @@
                 {
                     if( status === 'success' && data.status === 'subscribed' )
                     {
-                        $form.find( '.email' ).val( '' ).attr( 'placeholder', 'Subscribed!' );
+                        $form.find( '.email' ).val( '' ).attr( 'placeholder', data.message );
                     }
                 },
                 function( xhr, type, msg )

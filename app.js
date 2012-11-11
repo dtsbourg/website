@@ -122,7 +122,7 @@ app.post( '/subscribe', function( req, res )
     if( email && email.indexOf( '@' ) > 0 )
     {
         // Send an error if MailChimp doesn't answer after 10 seconds.
-        setTimeout( function()
+        var timeout = setTimeout( function()
         {
             res.json( 500, { status: 'error', error: 'Mailing list server didn\'t respond.' } );
 
@@ -139,13 +139,15 @@ app.post( '/subscribe', function( req, res )
             },
             function( err, response )
             {
+                clearTimeout( timeout );
+                
                 if( err )
                 {
                     res.json( 500, { status: 'error', error: err.error } );
                 }
                 else
                 {
-                    res.json( 200, { status: 'subscribed' } );
+                    res.json( 200, { status: 'subscribed', message: 'Ok! Please check your e-mail' } );
                 }
             }
         );
