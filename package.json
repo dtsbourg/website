@@ -22,6 +22,6 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "app.js"
+    "start": "supervisor app.js"
   }
 }
