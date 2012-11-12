@@ -1,4 +1,5 @@
 <% layout( 'layout' ) -%>
+<% var md5 = require( './lib/utils' ).md5 %>
 
 <div class="row" id="people">
   <div class="twelve columns">
@@ -15,11 +16,23 @@
     <% for( var i = 0; i < people.length; i++ ) { var person = people[ i ]; %>
       <div class="four columns">
         <div class="four columns">
-          <img src="https://graph.facebook.com/<%= person.facebookId %>/picture?type=normal" alt="<%= person.name %>'s photo" />
+          <img src="http://www.gravatar.com/avatar/<%= md5( person.email ) %>?s=68" alt="<%= person.name %>'s photo" />
         </div>
         <div class="eight columns">
           <h5><%= person.name %></h5>
-          <p><%= person.bio %></p>
+          <% if( person.bio ) { %>
+            <p><%= person.bio %></p>
+          <% } %>
+          <p class="icons">
+            <span class="icon twitter"></span>
+            <a href="https://twitter.com/<%= person.twitter %>">@<%= person.twitter %></a>
+            <br />
+            <span class="icon facebook"></span>
+            <a href="https://facebook.com/<%= person.facebook %>"><%= person.facebook %></a>
+            <br />
+            <span class="icon github"></span>
+            <a href="https://github.com/<%= person.github %>"><%= person.github %></a>
+          </p>
         </div>
       </div>
     <% } %>

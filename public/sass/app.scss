@@ -3,6 +3,20 @@
 
 // Comment out this import if you are customizing you imports below
 @import "foundation";
+@import "compass/css3/font-face";
+
+// @include font-face( "Entypo Social", font-files( "../fonts/entypo-social.eot", "../fonts/entypo-social.woff", "../fonts/entypo-social.svg#webfontregular" ) );
+
+@font-face {
+    font-family: 'Entypo Social';
+    src: url( '../fonts/entypo-social.eot');
+    src: url( '../fonts/entypo-social.eot?#iefix' ) format( 'embedded-opentype '),
+         url( '../fonts/entypo-social.woff') format( 'woff' ),
+         url( '../fonts/entypo-social.ttf') format( 'truetype' ),
+         url( '../fonts/entypo-social.svg#webfontregular' ) format( 'svg' );
+    font-weight: normal;
+    font-style: normal;
+}
 
 body {
   -webkit-font-smoothing: subpixel-antialiased !important;
@@ -59,11 +73,14 @@ h4 > small {
 }
 
 .picture {
-    // border: 15px solid white;
     padding-top: 20px;
     padding-bottom: 20px;
-    // box-shadow: 1px 1px 3px #AAA;
 }
+
+.icon { font: 28px/0.75 'Entypo Social'; display: inline-block; zoom: 1; width: 20px; text-align: center; vertical-align: -3px; };
+.icon.twitter:before  { content: '\F309' }
+.icon.facebook:before { content: '\F30C' }
+.icon.github:before   { content: '\F300' }
 
 #people h5 {
   margin-top: 0

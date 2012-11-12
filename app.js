@@ -72,7 +72,8 @@ app.get( '/people', function( req, res )
     res.render( 'people', {
         title: 'People',
         people: people,
-        page: 'people'
+        page: 'people',
+        require: require
     } );
 } );
 
