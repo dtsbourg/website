@@ -38,6 +38,10 @@ h1 {
   }
 }
 
+a:hover {
+  color: $linkHoverColor;
+}
+
 .nav-bar {
   background: #FFF;
   border-bottom: 1px solid #DDD;
