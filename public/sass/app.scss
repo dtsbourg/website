@@ -18,6 +18,17 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Entypo';
+    src: url( '../fonts/entypo.eot');
+    src: url( '../fonts/entypo.eot?#iefix' ) format( 'embedded-opentype '),
+         url( '../fonts/entypo.woff') format( 'woff' ),
+         url( '../fonts/entypo.ttf') format( 'truetype' ),
+         url( '../fonts/entypo.svg#webfontregular' ) format( 'svg' );
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
   -webkit-font-smoothing: subpixel-antialiased !important;
 }
@@ -85,6 +96,8 @@ h4 > small {
 .icon.twitter:before  { content: '\F309' }
 .icon.facebook:before { content: '\F30C' }
 .icon.github:before   { content: '\F300' }
+.icon.email:before    { content: '\1F53F'; font-family: 'Entypo' }
+.icon.website:before  { content: '\E728'; font-family: 'Entypo' }
 
 #people h5 {
   margin-top: 0
