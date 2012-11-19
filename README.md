@@ -9,12 +9,12 @@ We'll hopefully teach you better practices during the workshops :)
 
 ## Development
 
-    $ foreman start -f Procfile.dev
+    $ foreman start
 
 ## Production
     
     $ compass compile -e production --force public/
-    $ foreman start
+    $ npm start
 
 ## License
 

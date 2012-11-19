@@ -1,2 +1,2 @@
 compass: compass watch public/
-web: node app.js
+web: supervisor app.js

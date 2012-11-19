@@ -22,6 +22,6 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "supervisor app.js"
+    "start": "PORT=4000 supervisor app.js"
   }
 }
