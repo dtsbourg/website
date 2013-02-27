@@ -107,3 +107,16 @@ h4 > small {
   height: auto;
   overflow: hidden;
 }
+
+@media only screen and (max-width: 767px) {
+  h1 {
+    font-size: 36px;
+  }
+  .nav-bar > li {
+    text-align: center;
+    border-bottom: 1px solid #CCC;
+    a {
+      font-size: 16px !important;
+    }
+  }
+}
