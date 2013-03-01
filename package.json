@@ -18,7 +18,9 @@
     "ejs-locals": "~0.2.5",
     "request": "~2.11.4",
     "mailchimp": "~0.9.1",
-    "supervisor": "~0.5.0"
+    "supervisor": "~0.5.0",
+    "flick": "~0.1.2",
+    "shelljs": "~0.1.2"
   },
   "devDependencies": {},
   "scripts": {

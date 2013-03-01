@@ -9,7 +9,10 @@ var http = require( 'http' ),
     fetchData = require( './lib/data' ).fetchAll,
     app = module.exports = express(),
     data = {},
-    people = require( './lib/people' );
+    people = require( './lib/people' ),
+    flick = require( 'flick' ),
+    hook = flick(),
+    gitPull = require( './lib/git' ).pull;
 
 try
 {
@@ -160,6 +163,22 @@ app.post( '/subscribe', function( req, res )
 } );
 
 app.use( express.static( __dirname + '/public' ) );
+
+hook.use( 'HackEPFL/website', gitPull( '/var/www/hackersatepfl.com', { rebase: true } ) );
+app.post( '/flick', function( req, res, next )
+{
+    flick.whitelist( { local: true } )( req, res, function( err )
+    {
+        if( err ) return next( err );
+
+        flick.payload()( req, res, function( err )
+        {
+            if( err ) return next( err );
+            
+            hook( req, res, next );
+        } );
+    } );
+} );
 
 if( !module.parent )
 {
