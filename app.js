@@ -165,20 +165,10 @@ app.post( '/subscribe', function( req, res )
 app.use( express.static( __dirname + '/public' ) );
 
 hook.use( 'HackEPFL/website', gitPull( '/var/www/hackersatepfl.com', { rebase: true } ) );
-app.post( '/flick', function( req, res, next )
-{
-    flick.whitelist( { local: true } )( req, res, function( err )
-    {
-        if( err ) return next( err );
-
-        flick.payload()( req, res, function( err )
-        {
-            if( err ) return next( err );
-            
-            hook( req, res, next );
-        } );
-    } );
-} );
+app.post( '/flick', flick.whitelist( { local: true } ) );
+app.post( '/flick', flick.payload() );
+app.post( '/flick', hook );
+app.post( '/flick', function( req, res ) { res.end( 'Thanks, GitHub!' ); } );
 
 if( !module.parent )
 {
