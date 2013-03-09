@@ -80,6 +80,14 @@ app.get( '/people', function( req, res )
     } );
 } );
 
+app.get( '/partners', function( req, res )
+{
+    res.render( 'partners', {
+        title: 'Partners',
+        page: 'partners'
+    } );
+} );
+
 app.get( '/gallery', function( req, res )
 {
     res.render( 'gallery', {
