@@ -41,10 +41,10 @@
       <% } else { %>
         <% for( var i = 0; i < events.past.length; i++ ) { var event = events.past[ i ]; %>
           <div class="four columns">
-            <a href="http://www.facebook.com/event.php?eid=<%= event.id %>">
+            <a href="/events/<%= event.slug %>">
               <img src="https://graph.facebook.com/<%= event.id %>/picture?type=large" />
             </a>
-            <h5><a href="http://www.facebook.com/event.php?eid=<%= event.id %>"><%= event.name %></a></h5>
+            <h5><a href="/events/<%= event.slug %>"><%= event.name %></a></h5>
             <p><%= event.description %></p>
           </div>
         <% } %>
