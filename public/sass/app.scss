@@ -85,6 +85,9 @@ h4 > small {
     [class*="column"] + [class*="column"]:last-child {
         float: left;
     }
+    img {
+      min-height: 206px;
+    }
 }
 
 .picture {
