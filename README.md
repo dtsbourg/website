@@ -7,11 +7,17 @@ The home of the EPFL Hackers.
 The source code for the website has been quite rushed. It does NOT represent the current state of Node.js best practices.
 We'll hopefully teach you better practices during the workshops :)
 
-## Development
+## Setup
+
+    $ git clone https://github.com/HackEPFL/website.git
+    $ cd website/
+    $ npm install
+
+### Development
 
     $ foreman start
 
-## Production
+### Production
     
     $ compass compile -e production --force public/
     $ npm start
