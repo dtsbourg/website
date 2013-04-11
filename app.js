@@ -70,9 +70,13 @@ app.get( '/events', function( req, res )
     } );
 } );
 
-app.get( '/events/:slug', function( req, res )
+app.get( '/events/:slug', function( req, res, next )
 {
     var event = Data.Events.slugMap[ req.params.slug ];
+
+    if( !event ) {
+        return next();
+    }
 
     res.render( 'event', {
         title: event.name,
@@ -189,6 +193,29 @@ app.post( '/flick', flick.whitelist( { local: true } ) );
 app.post( '/flick', flick.payload() );
 app.post( '/flick', hook );
 app.post( '/flick', function( req, res ) { res.end( 'Thanks, GitHub!' ); } );
+
+app.use( function( req, res, next )
+{
+    res.status( 404 );
+
+    if( req.accepts( 'html' ) )
+    {
+        res.render( '404', {
+            title: 'Page not found',
+            page: '404',
+            url: req.url
+        } );
+        return;
+    }
+
+    if( req.accepts( 'json' ) )
+    {
+        res.send( { error: 'Page not found' } );
+        return;
+    }
+
+    res.type( 'txt' ).send('Page not found' );
+} );
 
 if( !module.parent )
 {
