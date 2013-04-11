@@ -1,0 +1,30 @@
+<% layout( 'layout' ) -%>
+
+<% var dateFormat = require( 'dateformat' ); %>
+
+<div class="row" id="event">
+  <div class="twelve columns">
+    <h3>Event Loop</h3>
+    <hr />
+    <h4><%= event.name %></h4>
+    <h5>
+      <%= event.start_time.toDateString() %>
+      <% if( !event.is_date_only ) { %> at <%= dateFormat( event.start_time, 'H:MM' ) %> <% } %>
+    </h5>
+    <p><strong>Location:</strong> <%= event.location %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="six columns">
+    <p>
+      <%- event.htmlDescription %>
+    </p>
+    <p>
+      <a href="http://www.facebook.com/event.php?eid=<%= event.id %>">Register on Facebook</a>
+    </p>
+  </div>
+  <div class="three columns">
+    <img src="https://graph.facebook.com/<%= event.id %>/picture?type=large" />
+  </div>
+  <div class="three columns"></div>
+</div>

@@ -6,7 +6,7 @@ var http = require( 'http' ),
     MailChimpAPI = require( 'mailchimp' ).MailChimpAPI,
     config = require( './conf' ),
     FB = require( './lib/fb' ),
-    fetchData = require( './lib/data' ).fetchAll,
+    Data = require( './lib/data' ),
     app = module.exports = express(),
     data = {},
     people = require( './lib/people' ),
@@ -29,7 +29,7 @@ function refreshData()
     {
         accessToken = FB.getAccessToken();
 
-        fetchData( FB, function( err, results )
+        Data.fetchAll( FB, function( err, results )
         {
             data.albums = results.albums;
             data.events = results.events;
@@ -67,6 +67,18 @@ app.get( '/events', function( req, res )
         title: 'Events',
         events: data.events,
         page: 'events'
+    } );
+} );
+
+app.get( '/events/:slug', function( req, res )
+{
+    var event = Data.Events.slugMap[ req.params.slug ];
+
+    res.render( 'event', {
+        title: event.name,
+        event: event,
+        page: 'events',
+        require: require
     } );
 } );
 

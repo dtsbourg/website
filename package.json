@@ -20,7 +20,9 @@
     "mailchimp": "~0.9.1",
     "supervisor": "~0.5.0",
     "flick": "0.2.x",
-    "shelljs": "~0.1.2"
+    "shelljs": "~0.1.2",
+    "slug": "~0.2.2",
+    "dateformat": "~1.0.6-1.2.3"
   },
   "devDependencies": {},
   "scripts": {
