@@ -1,4 +1,6 @@
 
+process.env.TZ = 'Europe/Zurich';
+
 var http = require( 'http' ),
     url = require( 'url' ),
     request = require( 'request' ),
