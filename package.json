@@ -22,7 +22,8 @@
     "flick": "0.2.x",
     "shelljs": "~0.1.2",
     "slug": "~0.2.2",
-    "dateformat": "~1.0.6-1.2.3"
+    "dateformat": "~1.0.6-1.2.3",
+    "feedparser": "~0.15.2"
   },
   "devDependencies": {},
   "scripts": {

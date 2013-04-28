@@ -5,6 +5,7 @@ var http = require( 'http' ),
     url = require( 'url' ),
     request = require( 'request' ),
     express = require( 'express' ),
+    feedparser = require( 'feedparser' ),
     MailChimpAPI = require( 'mailchimp' ).MailChimpAPI,
     config = require( './conf' ),
     FB = require( './lib/fb' ),
@@ -36,6 +37,10 @@ function refreshData()
             data.albums = results.albums;
             data.events = results.events;
         } );
+
+        feedparser.parseUrl( config.RSS_FEED, function( err, meta, articles ) {
+            data.news = articles;
+        } );
     } );
 
     setTimeout( refreshData, 60 * 15 * 100 );
@@ -59,6 +64,7 @@ app.get( '/', function( req, res )
     res.render( 'home', {
         title: 'Home',
         events: data.events,
+        news: data.news,
         page: 'home'
     } );
 } );

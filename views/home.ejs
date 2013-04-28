@@ -14,22 +14,22 @@
   </div>
 </div>
 <div class="row spacer"></div>
-<div class="row grid" id="events">
-  <div class="eight columns">
+<div class="row grid">
+  <div class="four columns" id="events">
     <h4>
-      Upcoming events
-      <% if( events.future.length > 2 ) { %>
+      Upcoming event
+      <% if( events.future.length > 1 ) { %>
         <small><a href="/events">See all <%= events.future.length %> upcoming events</a></small>
       <% } %>
     </h4>
     <div class="row">
       <% if( !events.future.length ) { %>
-      <div class="six columns">
+      <div class="twelve columns">
         <p>There are no upcoming events.
-        Check out our <a href="/events">past events</a> or our <a href="http://www.facebook.com/hackepfl/">Facebook page</a></p>
+        Check out our <a href="/events">past events</a> or our <a href="http://www.facebook.com/hackepfl/">Facebook page</a>.</p>
       </div>
       <% } else { %>
-        <% for( var i = 0; i < events.future.length && i < 2; i++ ) { var event = events.future[ i ]; %>
+        <% for( var i = 0; i < events.future.length && i < 1; i++ ) { var event = events.future[ i ]; %>
           <div class="six columns">
             <a href="/events/<%= event.slug %>">
               <img src="https://graph.facebook.com/<%= event.id %>/picture?type=large" />
@@ -41,13 +41,26 @@
       <% } %>
     </div>
   </div>
-
+  <div class="four columns" id="news">
+    <h4>News</h4>
+    <div class="row">
+      <div class="twelve columns">
+        <ul>
+        <% for( var i = 0; i < news.length; i++ ) { %>
+          <li>
+            <a href="<%= news[ i ].link %>"><%= news[ i ].title %></a>
+          </li>  
+        <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
   <div class="four columns" id="mailing-list">
     <h4>Stay in touch</h4>
     <div class="panel">
       <p>Subscribe to the mailing list:</p>
       <form id="subscribe" method="post" action="/subscribe">
-        <input name="email" type="email" placeholder="info@hackersatepfl.com" class="email" />
+        <input name="email" type="email" placeholder="your@email.com" class="email" />
         <input type="submit" class="radius button right submit" value="Subscribe" />
       </form>
     </div>
