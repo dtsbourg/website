@@ -15,7 +15,7 @@ var http = require( 'http' ),
     people = require( './lib/people' ),
     flick = require( 'flick' ),
     hook = flick(),
-    gitPull = require( './lib/git' ).pull;
+    reload = require( './lib/flick-handler' );
 
 try
 {
@@ -198,7 +198,7 @@ app.post( '/subscribe', function( req, res )
 
 app.use( express.static( __dirname + '/public' ) );
 
-hook.use( 'HackEPFL/website', gitPull( '/var/www/hackersatepfl.com', { rebase: true } ) );
+hook.use( 'HackEPFL/website', reload );
 app.post( '/flick', flick.whitelist( { local: true } ) );
 app.post( '/flick', flick.payload() );
 app.post( '/flick', hook );
