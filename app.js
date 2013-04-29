@@ -17,23 +17,19 @@ var http = require( 'http' ),
     hook = flick(),
     reload = require( './lib/flick-handler' );
 
-try
-{
+try {
     var mailchimp = new MailChimpAPI( config.MAILCHIMP.API_KEY, { secure: true } );
 }
-catch( e )
-{
+catch( e ) {
     console.error( '[ERROR] Can\'t connect to MailChimp', e.message );
 }
 
 function refreshData()
 {
-    FB.__connect( function( FB )
-    {
+    FB.__connect( function( FB ) {
         accessToken = FB.getAccessToken();
 
-        Data.fetchAll( FB, function( err, results )
-        {
+        Data.fetchAll( FB, function( err, results ) {
             data.albums = results.albums;
             data.events = results.events;
         } );
@@ -128,8 +124,7 @@ app.get( '/album/:id', function( req, res )
     var id = req.params.id,
         album = data.albums.findById( id );
 
-    if( !album )
-    {
+    if( !album ) {
         res.redirect( '/gallery' );
         return;
     }
@@ -146,22 +141,18 @@ app.post( '/subscribe', function( req, res )
 {
     var email = req.body.email;
 
-    if( !mailchimp )
-    {
+    if( !mailchimp ) {
         res.json( 500, { status: 'error', error: 'Mailing list server down.' } );
         return;
     }
 
-    if( !email )
-    {
+    if( !email ) {
         res.json( 500, { status: 'error', error: 'No e-mail supplied.' } );
     }
 
-    if( email && email.indexOf( '@' ) > 0 )
-    {
+    if( email && email.indexOf( '@' ) > 0 ) {
         // Send an error if MailChimp doesn't answer after 10 seconds.
-        var timeout = setTimeout( function()
-        {
+        var timeout = setTimeout( function() {
             res.json( 500, { status: 'error', error: 'Mailing list server didn\'t respond.' } );
 
         }, 10 * 1000 );
@@ -179,19 +170,16 @@ app.post( '/subscribe', function( req, res )
             {
                 clearTimeout( timeout );
 
-                if( err )
-                {
+                if( err ) {
                     res.json( 500, { status: 'error', error: err.error } );
                 }
-                else
-                {
+                else {
                     res.json( 200, { status: 'subscribed', message: 'Thanks! Please check your e-mail.' } );
                 }
             }
         );
     }
-    else
-    {
+    else {
         res.json( 500, { status: 'error', error: 'Invalid e-mail address.' } );
     }
 } );
@@ -208,8 +196,7 @@ app.use( function( req, res, next )
 {
     res.status( 404 );
 
-    if( req.accepts( 'html' ) )
-    {
+    if( req.accepts( 'html' ) ) {
         res.render( '404', {
             title: 'Page not found',
             page: '404',
@@ -218,8 +205,7 @@ app.use( function( req, res, next )
         return;
     }
 
-    if( req.accepts( 'json' ) )
-    {
+    if( req.accepts( 'json' ) ) {
         res.send( { error: 'Page not found' } );
         return;
     }
