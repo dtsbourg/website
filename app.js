@@ -11,7 +11,6 @@ var http = require( 'http' ),
     FB = require( './lib/fb' ),
     Data = require( './lib/data' ),
     app = module.exports = express(),
-    data = {},
     people = require( './lib/people' ),
     flick = require( 'flick' ),
     hook = flick(),
@@ -23,6 +22,8 @@ try {
 catch( e ) {
     console.error( '[ERROR] Can\'t connect to MailChimp', e.message );
 }
+
+var data = {};
 
 function refreshData()
 {
