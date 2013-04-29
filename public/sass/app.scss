@@ -101,6 +101,17 @@ h4 > small {
   list-style: none
 }
 
+#news li {
+  text-overflow: ellipsis;
+}
+
+#news small {
+  font-size: 0.8em;
+  color: #999;
+  display: inline-block;
+  margin-left: 5px
+}
+
 .icon { font: 28px/0.75 'Entypo Social'; display: inline-block; zoom: 1; width: 20px; text-align: center; vertical-align: -3px; };
 .icon.twitter:before  { content: '\F309' }
 .icon.facebook:before { content: '\F30C' }

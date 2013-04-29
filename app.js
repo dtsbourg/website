@@ -55,6 +55,8 @@ app.engine( 'ejs', require( 'ejs-locals' ) );
 app.locals._layoutFile = '/layout.ejs';
 app.set( 'view engine', 'ejs' );
 
+app.locals.moment = require( 'moment' );
+
 app.use( express.logger() );
 app.use( express.compress() );
 app.use( express.bodyParser() );

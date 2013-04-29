@@ -49,6 +49,7 @@
         <% for( var i = 0; i < news.length; i++ ) { %>
           <li>
             <a href="<%= news[ i ].link %>"><%= news[ i ].title %></a>
+            <small><%= moment( news[ i ].date ).format( 'LL' ) %></small>
           </li>  
         <% } %>
         </ul>
