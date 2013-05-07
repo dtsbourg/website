@@ -26,7 +26,9 @@
       <% } else { %>
         <% for( var i = 0; i < albums.length; i++ ) { var album = albums[ i ]; %>
           <div class="four columns">
-            <img src="https://graph.facebook.com/<%= album.id %>/picture?type=album" />
+            <a href="/album/<%= album.id %>">
+              <img src="https://graph.facebook.com/<%= album.id %>/picture?type=album" />
+            </a>
             <h5><a href="/album/<%= album.id %>"><%= album.name %></a></h5>
           </div>
         <% } %>
