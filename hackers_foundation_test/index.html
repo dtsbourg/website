@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Foundation 4</title>
+  <title>Gallery</title>
 
   <link rel="stylesheet" href="stylesheets/app.css">
   
@@ -15,23 +15,20 @@
   <style>
   @media (min-width: 800px) {
   
-  	li img:hover {
-  		border:4px solid #cc0000;
+  	li:hover {
+  		border:2px solid #cc0000;
   	}
   
  	 li img {
- 	 	height:100%;
-		border: 3px solid grey;
-    	
+    	vertical-align:middle;
   	}
   
   	li {
-  		width : 300px;
-    	height : 300px;
+  		width : 450px;
+    	height : 450px;
   		margin-bottom:10px;
-  		display: inline-block;
+  		display: block;
   		overflow:hidden;
-
   	}
   
   	.epfl {
@@ -58,18 +55,17 @@
 		
 		<div class="clearing" >
 			<ul class="clearing-thumbs" data-clearing>
-  				<li><a href="http://scontent-a.xx.fbcdn.net/hphotos-ash3/s720x720/576777_367182343397657_1053410554_n.jpg"><img src="http://scontent-a.xx.fbcdn.net/hphotos-ash3/s720x720/576777_367182343397657_1053410554_n.jpg"></a></li>
-  				<li><a href="http://scontent-b.xx.fbcdn.net/hphotos-ash4/s720x720/9564_367182500064308_1777237493_n.jpg"><img src="http://scontent-b.xx.fbcdn.net/hphotos-ash4/s720x720/9564_367182500064308_1777237493_n.jpg"></a></li>
-  				<li><a href="http://scontent-a.xx.fbcdn.net/hphotos-frc1/s720x720/484380_367182503397641_1127686290_n.jpg"><img src="http://scontent-a.xx.fbcdn.net/hphotos-frc1/s720x720/484380_367182503397641_1127686290_n.jpg"></a></li>
-  				<li><a href="http://scontent-b.xx.fbcdn.net/hphotos-frc3/s720x720/483182_367182833397608_279385435_n.jpg"><img src="http://scontent-b.xx.fbcdn.net/hphotos-frc3/s720x720/483182_367182833397608_279385435_n.jpg"></a></li>
-  				<li><a href="http://scontent-a.xx.fbcdn.net/hphotos-ash2/s720x720/551982_367182106731014_135943667_n.jpg"><img src="http://scontent-a.xx.fbcdn.net/hphotos-ash2/s720x720/551982_367182106731014_135943667_n.jpg"></a></li>
-  				<li><a href="http://scontent-b.xx.fbcdn.net/hphotos-ash4/s720x720/409000_367182876730937_933311317_n.jpg"><img src="http://scontent-b.xx.fbcdn.net/hphotos-ash4/s720x720/409000_367182876730937_933311317_n.jpg"></a></li>
-  				<li><a href="http://scontent-a.xx.fbcdn.net/hphotos-prn2/s720x720/7873_367182100064348_198436222_n.jpg"><img src="http://scontent-a.xx.fbcdn.net/hphotos-prn2/s720x720/7873_367182100064348_198436222_n.jpg"></a></li>
-  				<li><a href="http://scontent-b.xx.fbcdn.net/hphotos-frc1/s720x720/733940_367182110064347_1567906693_n.jpg"><img src="http://scontent-b.xx.fbcdn.net/hphotos-frc1/s720x720/733940_367182110064347_1567906693_n.jpg"></a></li>
-  				<li><a href="http://scontent-b.xx.fbcdn.net/hphotos-frc1/s720x720/601127_367182170064341_888479631_n.jpg"><img src="http://scontent-b.xx.fbcdn.net/hphotos-frc1/s720x720/601127_367182170064341_888479631_n.jpg"></a></li>
-  				<li><a href="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash4/s720x720/480288_367182180064340_473662338_n.jpg"><img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash4/s720x720/480288_367182180064340_473662338_n.jpg"></a></li>
-  				<li><a href="http://scontent-a.xx.fbcdn.net/hphotos-ash2/s720x720/528856_367182183397673_2079193263_n.jpg"><img src="http://scontent-a.xx.fbcdn.net/hphotos-ash2/s720x720/528856_367182183397673_2079193263_n.jpg"></a></li>
-  				
+  				<li class="li"><a class="imgs" href="http://scontent-a.xx.fbcdn.net/hphotos-ash3/s720x720/576777_367182343397657_1053410554_n.jpg"><img src="http://scontent-a.xx.fbcdn.net/hphotos-ash3/s720x720/576777_367182343397657_1053410554_n.jpg"></a></li>
+  				<li class="li"><a class="imgs" href="http://scontent-b.xx.fbcdn.net/hphotos-ash4/s720x720/9564_367182500064308_1777237493_n.jpg"><img src="http://scontent-b.xx.fbcdn.net/hphotos-ash4/s720x720/9564_367182500064308_1777237493_n.jpg"></a></li>
+  				<li class="li"><a class="imgs" href="http://scontent-a.xx.fbcdn.net/hphotos-frc1/s720x720/484380_367182503397641_1127686290_n.jpg"><img src="http://scontent-a.xx.fbcdn.net/hphotos-frc1/s720x720/484380_367182503397641_1127686290_n.jpg"></a></li>
+  				<li class="li"><a class="imgs" href="http://scontent-b.xx.fbcdn.net/hphotos-frc3/s720x720/483182_367182833397608_279385435_n.jpg"><img src="http://scontent-b.xx.fbcdn.net/hphotos-frc3/s720x720/483182_367182833397608_279385435_n.jpg"></a></li>
+  				<li class="li"><a class="imgs" href="http://scontent-a.xx.fbcdn.net/hphotos-ash2/s720x720/551982_367182106731014_135943667_n.jpg"><img src="http://scontent-a.xx.fbcdn.net/hphotos-ash2/s720x720/551982_367182106731014_135943667_n.jpg"></a></li>
+  				<li class="li"><a class="imgs" href="http://scontent-a.xx.fbcdn.net/hphotos-prn2/s720x720/7873_367182100064348_198436222_n.jpg"><img src="http://scontent-a.xx.fbcdn.net/hphotos-prn2/s720x720/7873_367182100064348_198436222_n.jpg"></a></li>
+  				<li class="li"><a class="imgs" href="http://scontent-b.xx.fbcdn.net/hphotos-frc1/s720x720/733940_367182110064347_1567906693_n.jpg"><img src="http://scontent-b.xx.fbcdn.net/hphotos-frc1/s720x720/733940_367182110064347_1567906693_n.jpg"></a></li>
+  				<li class="li"><a class="imgs" href="http://scontent-b.xx.fbcdn.net/hphotos-frc1/s720x720/601127_367182170064341_888479631_n.jpg"><img src="http://scontent-b.xx.fbcdn.net/hphotos-frc1/s720x720/601127_367182170064341_888479631_n.jpg"></a></li>
+  				<li class="li"><a class="imgs" href="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash4/s720x720/480288_367182180064340_473662338_n.jpg"><img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash4/s720x720/480288_367182180064340_473662338_n.jpg"></a></li>
+  				 <li class="li"><a class="imgs" href="http://scontent-b.xx.fbcdn.net/hphotos-ash4/s720x720/409000_367182876730937_933311317_n.jpg"><img src="http://scontent-b.xx.fbcdn.net/hphotos-ash4/s720x720/409000_367182876730937_933311317_n.jpg"></a></li>
+  				<li class="li"><a class="imgs" href="http://scontent-a.xx.fbcdn.net/hphotos-ash2/s720x720/528856_367182183397673_2079193263_n.jpg"><img src="http://scontent-a.xx.fbcdn.net/hphotos-ash2/s720x720/528856_367182183397673_2079193263_n.jpg"></a></li>	
 			</ul>
 		</div>
 		
@@ -127,7 +123,7 @@
 	var spanA = document.getElementsByClassName('event');
 	var spanB = document.getElementsByClassName('epfl');
 	var i = 0;
-	while(i < spanA.length){
+	while(i < spanA.length) {
     	spanA[i].onmouseover = function change(){
         	var i = 0;
         	while(i < spanA.length){
@@ -147,6 +143,28 @@
     	}
     	i++;
 	}
+	</script>
+	<script>
+	$j(document).ready(
+	
+	function() {
+	$('.imgs').each(
+	
+		function() {
+	
+			var conHeight = $(".li").height();
+			var imgHeight = $(this).height();
+			var imgWidth = $(this).width();
+	
+			if (imgWidth > imgHeight) {
+				var gap = ((imgHeight - conHeight)/2)+85;
+				$(".li").css({"height",gap + 'px'});
+			}
+			else {
+				$(".li").css({"margin-bottom",10});
+			}		
+		});
+	});
 	
 	</script>
 </body>
