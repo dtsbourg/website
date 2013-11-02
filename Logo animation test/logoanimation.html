@@ -4,29 +4,107 @@
 	<meta charset="utf-8">
  	<title>Gallery</title>
 <style>
-.space{
-
+.HackersLogo{
 	/* Pass a comma separated list of backgrounds: */
 	background:url('logo-2.png') no-repeat center 50px, url('red.jpg') no-repeat bottom center;
 
-	width:200px;
-	height:200px;
-	margin: 0 auto;
+	width:180px;
+	height:180px;
 
 	border-radius:3px;
 
 	/* Animate the positions of both of the backgrounds */
-	transition:background-position 1s;
+	transition:background-position 0.75s;
 }
 
-.space:hover{
+.HackersLogo:hover{
 	/* The same goes for properties like background-position and repeat */
-	background-position:35% 20px, top right;
+	background-position:35% 10px, top right;
+}
+
+body {
+	font-family: Futura;
+}
+
+ul {
+	display:inline-block;
+	float:left;
+	margin-left:10%;
+	width:80%;
+}
+
+li {
+	display:inline-block;
+	font-size:2em;
+	margin-left:10%;
+}
+
+li:hover, .epfl {
+	color:#cf0000;
+}
+
+.main {
+	margin-left:20%;
 }
 </style>
+
 </head>
 
 <body>
-<div class="space"></div>
+	<header>
+	<ul>
+	<li> Home <hr/> </li>
+	<li> Events <hr/> </li>
+	<li> News <hr/> </li>
+	<li> Gallery <hr/> </li>
+	<li> People <hr/> </li>
+</ul>
+	</header>
 
+<div class="HackersLogo"></div>
+<h2> <span class="hackers"> Hackers</span> <span class="epfl">@EPFL</span> </h2>
+
+<div class="main">
+	<div class="">
+		<h3> Our mission </h3>
+	</div>
+	<div class="contact">
+	<h3>Stay in touch</h3>
+		<div class="panel">
+			<p>Subscribe to the mailing list:</p>
+			<input name="email" type="email" placeholder="info@hackepfl.com" class="email" />
+			<input type="submit" class="radius button submit" value="Subscribe" />
+		</div>
+	</div>
+</div>
+
+<script>
+	function change(){
+    alert();
+	}
+
+	var spanA = document.getElementsByClassName('hackers');
+	var spanB = document.getElementsByClassName('epfl');
+	var i = 0;
+	while(i < spanA.length) {
+    	spanA[i].onmouseover = function change(){
+        	var i = 0;
+        	while(i < spanA.length){
+        	    spanA[i].style.color = '#cf0000';
+        	    spanB[i].style.color= 'black';
+        	    i++;
+        	}
+    	}
+    
+    	spanA[i].onmouseout = function change(){
+        	var i = 0;
+        	while(i < spanA.length){
+            	spanA[i].style.color = 'black';
+            	spanB[i].style.color= '#cf0000';
+            	i++;
+        	}
+    	}
+    	i++;
+	}
+	</script>
 </body>
